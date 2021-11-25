@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "follow-dev",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}
