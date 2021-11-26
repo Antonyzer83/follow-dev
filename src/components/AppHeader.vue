@@ -22,15 +22,17 @@ export default {
     IonTitle,
     IonToolbar,
   },
+  data() {
+    return {
+      pages: {
+        login: 'Connexion'
+      }
+    }
+  },
   computed: {
     getPageName() {
       const route = useRoute();
-      switch (route.name) {
-        case 'login':
-          return 'Connexion';
-        default:
-          return 'Not found';
-      }
+      return this.pages[route.name] || 'Not found';
     }
   }
 }

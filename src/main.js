@@ -23,6 +23,30 @@ import '@ionic/vue/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCLtUDgqRhGmuHYgvl0ssyxX8lLXTRV7P0",
+  authDomain: "followdevynov.firebaseapp.com",
+  projectId: "followdevynov",
+  storageBucket: "followdevynov.appspot.com",
+  messagingSenderId: "218776943399",
+  appId: "1:218776943399:web:5d6dd4cdc8f42507890702"
+};
+
+// Initialize Firebase
+initializeApp(firebaseConfig);
+
+// Listen to authentification to store user
+const auth = getAuth();
+onAuthStateChanged(auth, (user) => {
+  console.log(user);
+  // TODO: Store user in VUEX
+});
+
 const app = createApp(App)
   .use(IonicVue)
   .use(router);
