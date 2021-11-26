@@ -7,7 +7,7 @@
   </ion-content>
 </template>
 
-<script lang="ts">
+<script>
 import { IonContent } from '@ionic/vue';
 
 export default {

@@ -9,7 +9,7 @@
   </ion-header>
 </template>
 
-<script lang="ts">
+<script>
 import { IonButtons, IonHeader, IonMenuButton, IonTitle, IonToolbar } from '@ionic/vue';
 import { useRoute } from 'vue-router';
 
@@ -23,7 +23,7 @@ export default {
     IonToolbar,
   },
   computed: {
-    getPageName(): string {
+    getPageName() {
       const route = useRoute();
       switch (route.name) {
         case 'login':
