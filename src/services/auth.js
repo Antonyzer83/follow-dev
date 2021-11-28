@@ -1,4 +1,4 @@
-import { GoogleAuthProvider, getAuth, signInWithRedirect, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithRedirect, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
 
 const provider = new GoogleAuthProvider();
@@ -8,6 +8,7 @@ class AuthService {
     const auth = getAuth();
     signInWithRedirect(auth, provider);
   }
+
   loginWithEmailPassword(email, password) {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
@@ -24,6 +25,11 @@ class AuthService {
             });
         }
       });
+  }
+
+  logout() {
+    const auth = getAuth();
+    signOut(auth);
   }
 }
 

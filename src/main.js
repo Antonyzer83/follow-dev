@@ -45,6 +45,16 @@ initializeApp(firebaseConfig);
 const auth = getAuth();
 onAuthStateChanged(auth, (user) => {
   store.dispatch('login', user || null);
+
+  if (user) {
+    router.push({
+      name: 'exercices'
+    });
+  } else {
+    router.push({
+      name: 'login'
+    });
+  }
 });
 
 const app = createApp(App)

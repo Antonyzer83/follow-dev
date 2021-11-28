@@ -6,19 +6,37 @@
           <ion-list id="inbox-list">
             <ion-list-header>FollowDev</ion-list-header>
             <ion-note>antony.castaner@ynov.com</ion-note>
-  
-            <ion-menu-toggle auto-hide="false" v-for="(p, i) in appPages" :key="i">
-              <ion-item router-direction="root" :router-link="p.url" lines="none" detail="false" class="hydrated">
-                <ion-icon slot="start" :ios="p.iosIcon" :md="p.mdIcon"></ion-icon>
-                <ion-label>{{ p.title }}</ion-label>
-              </ion-item>
-            </ion-menu-toggle>
+
+            <template v-if="isLoggedIn">
+              <ion-menu-toggle auto-hide="false" v-for="(p, i) in appUserPages" :key="i">
+                <ion-item router-direction="root" :router-link="p.url" lines="none" detail="false" class="hydrated">
+                  <ion-icon slot="start" :ios="p.iosIcon" :md="p.mdIcon"></ion-icon>
+                  <ion-label>{{ p.title }}</ion-label>
+                </ion-item>
+              </ion-menu-toggle>
+
+              <ion-menu-toggle auto-hide="false">
+                <ion-item router-direction="root" lines="none" detail="false" class="hydrated" v-on:click="logout()">
+                  <ion-icon slot="start" :ios="logOut" :md="logOut"></ion-icon>
+                  <ion-label>Se déconnecter</ion-label>
+                </ion-item>
+              </ion-menu-toggle>
+            </template>
+
+            <template v-else>
+              <ion-menu-toggle auto-hide="false" v-for="(p, i) in appPublicPages" :key="i">
+                <ion-item router-direction="root" :router-link="p.url" lines="none" detail="false" class="hydrated">
+                  <ion-icon slot="start" :ios="p.iosIcon" :md="p.mdIcon"></ion-icon>
+                  <ion-label>{{ p.title }}</ion-label>
+                </ion-item>
+              </ion-menu-toggle>
+            </template>
           </ion-list>
         </ion-content>
       </ion-menu>
       <ion-page>
         <app-header />
-        <ion-router-outlet id="main-content"></ion-router-outlet>
+        <ion-router-outlet id="main-content" :key="$route.path"></ion-router-outlet>
       </ion-page>
     </ion-split-pane>
   </ion-app>
@@ -27,7 +45,8 @@
 <script>
 import { IonApp, IonPage, IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonNote, IonRouterOutlet, IonSplitPane } from '@ionic/vue';
 import AppHeader from './components/AppHeader.vue';
-import { logIn } from 'ionicons/icons';
+import { logIn, logOut, fitness } from 'ionicons/icons';
+import AuthService from './services/auth';
 
 export default {
   name: 'App',
@@ -49,14 +68,34 @@ export default {
   },
   data() {
     return {
-      appPages: [
+      appPublicPages: [
         {
           title: 'Connexion',
           url: '/',
           iosIcon: logIn,
           mdIcon: logIn
         }
-      ]
+      ],
+      appUserPages: [
+        {
+          title: 'Exercices',
+          url: '/exercices',
+          iosIcon: fitness,
+          mdIcon: fitness,
+        }
+      ],
+      authService: AuthService,
+      logOut
+    }
+  },
+  methods: {
+    logout() {
+      this.authService.logout();
+    }
+  },
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters.isLoggedIn;
     }
   }
 };
