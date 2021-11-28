@@ -1,4 +1,5 @@
 import { GoogleAuthProvider, getAuth, signInWithRedirect, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { collection, addDoc, getFirestore } from "firebase/firestore";
 
 const provider = new GoogleAuthProvider();
 
@@ -14,8 +15,12 @@ class AuthService {
                 if (error.message.includes('auth/user-not-found')) {
                     createUserWithEmailAndPassword(auth, email, password)
                         .then((response) => {
-                            console.log(response);
-                            // TODO register
+                            const db = getFirestore();
+                            const { email: emailResponse, uid } = response.user;
+                            addDoc(collection(db, 'users'), {
+                                email: emailResponse,
+                                uid
+                            });
                         });
                 }
             });
