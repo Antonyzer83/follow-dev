@@ -36,33 +36,33 @@ import { logoGoogle } from 'ionicons/icons';
 import AuthService from '../services/auth';
 
 export default {
-    name: 'Login',
-    components: {
-      IonButton,
-      IonCol,
-      IonContent,
-      IonIcon,
-      IonGrid,
-      IonRow,
-      IonInput,
-    },
-    data() {
-      return {
-        email: '',
-        password: '',
-        authService: AuthService,
-        logoGoogle
-      }
-    },
-    methods: {
-      loginWithEmailPassword() {
-        if (this.email !== '' && this.password !== '') {
-          this.authService.loginWithEmailPassword(this.email, this.password);
-        }
-      },
-      loginWithGoogle() {
-        this.authService.loginWithGoogle();
-      }
+  name: 'Login',
+  components: {
+    IonButton,
+    IonCol,
+    IonContent,
+    IonIcon,
+    IonGrid,
+    IonRow,
+    IonInput,
+  },
+  data() {
+    return {
+      email: '',
+      password: '',
+      authService: AuthService,
+      logoGoogle
     }
+  },
+  methods: {
+    loginWithEmailPassword() {
+      if (this.email !== '' && this.password !== '') {
+        this.authService.loginWithEmailPassword(this.email, this.password);
+      }
+    },
+    loginWithGoogle() {
+      this.authService.loginWithGoogle();
+    }
+  }
 }
 </script>
