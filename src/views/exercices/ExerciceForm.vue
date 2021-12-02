@@ -3,37 +3,58 @@
     <ion-grid>
       <ion-row>
         <ion-col>
-          <ion-input type="text" placeholder="Nom" v-model="exercice.name"></ion-input>
+          <ion-item>
+            <ion-label>Nom :</ion-label>
+            <ion-input type="text" placeholder="(obligatoire)" v-model="exercice.name"></ion-input>
+          </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-textarea placeholder="Description" v-model="exercice.description"></ion-textarea>
+          <ion-item>
+            <ion-label>Description :</ion-label>
+            <ion-textarea placeholder="(obligatoire)" v-model="exercice.description"></ion-textarea>
+          </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-input type="text" placeholder="Image" v-model="exercice.img_url"></ion-input>
+          <ion-item>
+            <ion-label>Image :</ion-label>
+            <ion-input type="text" placeholder="(obligatoire)" v-model="exercice.img_url"></ion-input>
+          </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-input type="text" placeholder="Nombre de répétitions" v-model="exercice.repetition"></ion-input>
+          <ion-item>
+            <ion-label>Nombre de répétitions :</ion-label>
+            <ion-input type="text" placeholder="(obligatoire)" v-model="exercice.repetition"></ion-input>
+          </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-input type="text" placeholder="Temps de repos (facultatif)" v-model="exercice.rest"></ion-input>
+          <ion-item>
+            <ion-label>Temps de repos :</ion-label>
+            <ion-input type="text" placeholder="(facultatif)" v-model="exercice.rest"></ion-input>
+          </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-input type="text" placeholder="Poids (facultatif)" v-model="exercice.weight"></ion-input>
+          <ion-item>
+            <ion-label>Poids :</ion-label>
+            <ion-input type="text" placeholder="(facultatif)" v-model="exercice.weight"></ion-input>
+          </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-input type="text" placeholder="Nombre de séries (facultatif)" v-model="exercice.serie"></ion-input>
+          <ion-item>
+            <ion-label>Nombre de séries :</ion-label>
+            <ion-input type="text" placeholder="(facultatif)" v-model="exercice.serie"></ion-input>
+          </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -47,7 +68,7 @@
 </template>
 
 <script>
-import { IonContent, IonGrid, IonRow, IonCol, IonInput, IonButton, IonTextarea } from '@ionic/vue';
+import { IonContent, IonGrid, IonRow, IonCol, IonInput, IonButton, IonTextarea, IonLabel, IonItem } from '@ionic/vue';
 import ExerciceService from '../../services/exercice';
 
 export default {
@@ -59,7 +80,9 @@ export default {
     IonCol,
     IonInput,
     IonButton,
-    IonTextarea
+    IonTextarea,
+    IonLabel,
+    IonItem,
   },
   data() {
     return {
@@ -143,8 +166,8 @@ export default {
   margin: 2vh 0;
   text-align: center;
 }
-#exerciceForm ion-input, #exerciceForm ion-textarea {
+/*#exerciceForm ion-input, #exerciceForm ion-textarea {
   border: 0.5px solid black;
   border-radius: 5px;
-}
+}*/
 </style>
