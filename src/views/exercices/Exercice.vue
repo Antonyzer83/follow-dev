@@ -1,5 +1,5 @@
 <template>
-  <ion-content :fullscreen="true">
+  <ion-content :fullscreen="true" id="exercice">
     <template v-if="exercice">
       <p class="exercice-description">{{ exercice.description }}</p>
 
@@ -86,7 +86,7 @@ export default {
   font-weight: bold;
 }
 
-ion-img {
+#exercice ion-img {
   margin: 5vh auto;
   width: 80%;
 }

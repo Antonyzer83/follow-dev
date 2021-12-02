@@ -45,7 +45,7 @@
 <script>
 import { IonApp, IonPage, IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonNote, IonRouterOutlet, IonSplitPane } from '@ionic/vue';
 import AppHeader from './components/AppHeader.vue';
-import { logIn, logOut, fitness } from 'ionicons/icons';
+import { logIn, logOut, fitness, addOutline } from 'ionicons/icons';
 import AuthService from './services/auth';
 
 export default {
@@ -82,6 +82,12 @@ export default {
           url: '/exercices',
           iosIcon: fitness,
           mdIcon: fitness,
+        },
+        {
+          title: 'Créer un exercice',
+          url: '/exercices/create',
+          iosIcon: addOutline,
+          mdIcon: addOutline
         }
       ],
       authService: AuthService,

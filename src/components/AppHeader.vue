@@ -27,7 +27,8 @@ export default {
       pages: {
         login: 'Connexion',
         exercices: 'Exercices',
-        exercice: 'Exercice'
+        exercice: 'Exercice',
+        exerciceCreate: 'Nouvel exercice',
       }
     }
   },
