@@ -1,5 +1,5 @@
 <template>
-  <ion-grid class="exercice-card">
+  <ion-grid class="exercice-card" v-on:click="showOneExercice(exercice.id)">
     <ion-row>
       <ion-col size="6">
         <ion-row class="ion-align-items-center">
@@ -62,6 +62,16 @@ export default {
       gitCompareOutline,
     };
   },
+  methods: {
+    showOneExercice(exerciceId) {
+      this.$router.push({
+        name: 'exercice',
+        params: {
+          id: exerciceId
+        }
+      });
+    }
+  }
 };
 </script>
 

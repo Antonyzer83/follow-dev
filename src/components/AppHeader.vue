@@ -26,7 +26,8 @@ export default {
     return {
       pages: {
         login: 'Connexion',
-        exercices: 'Exercices'
+        exercices: 'Exercices',
+        exercice: 'Exercice'
       }
     }
   },
