@@ -81,6 +81,7 @@ export default {
   border: 1px solid black;
   border-radius: 10px;
   box-shadow: 2px 2px grey;
+  height: 15vh;
 }
 
 .exercice-name {
