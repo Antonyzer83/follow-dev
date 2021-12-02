@@ -13,6 +13,11 @@ const userRoutes = [
     path: '/exercices/create',
     name: 'exerciceCreate',
     component: () => import('../views/exercices/ExerciceForm.vue')
+  },
+  {
+    path: '/exercices/update/:id',
+    name: 'exerciceUpdate',
+    component: () => import('../views/exercices/ExerciceForm.vue')
   }
 ];
 

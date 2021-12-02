@@ -38,7 +38,8 @@
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-button color="success" v-on:click="createExercice">Créer</ion-button>
+          <ion-button v-if="isCreateMode" color="success" v-on:click="createExercice">Créer</ion-button>
+          <ion-button v-else color="warning" v-on:click="updateExercice">Mise à jour</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -71,7 +72,21 @@ export default {
         weight: '',
         serie: '',
         img_url: ''
-      }
+      },
+      mode: 'create'
+    }
+  },
+  created() {
+    if (this.$route.params.id && this.$route.name === 'exerciceUpdate') {
+      this.exerciceService.getExercice(this.$route.params.id).then(
+        exercice => {
+          if (exercice.exists()) {
+            this.exercice = exercice.data();
+            this.exercice.id = this.$route.params.id;
+            this.mode = 'update';
+          }
+        }
+      )
     }
   },
   methods: {
@@ -79,6 +94,7 @@ export default {
       if (this.exercice.name !== '' && this.exercice.description !== '' && this.exercice.img_url !== '') {
         this.exerciceService.createExercice(this.exercice).then(
           (result) => {
+            // Redirect to new exercice page if success
             if (result.id) {
               this.$router.push({
                 name: 'exercice',
@@ -87,13 +103,33 @@ export default {
                 }
               });
             } else {
+              // Redirect to list of exercices
               this.$router.push({
                 name: 'exercices'
               });
             }
           }
-        )
+        );
       }
+    },
+    updateExercice() {
+      if (this.exercice.name !== '' && this.exercice.description !== '' && this.exercice.img_url !== '') {
+        this.exerciceService.updateExercice(this.exercice).then(
+          () => {
+            this.$router.push({
+              name: 'exercice',
+              params: {
+                id: this.exercice.id
+              }
+            });
+          }
+        );
+      }
+    }
+  },
+  computed: {
+    isCreateMode() {
+      return this.mode === 'create';
     }
   }
 }

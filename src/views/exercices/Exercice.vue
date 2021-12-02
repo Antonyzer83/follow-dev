@@ -27,13 +27,18 @@
       </ion-grid>
 
       <ion-img :src="exercice.img_url"></ion-img>
+
+      <ion-button class="btn-update-exercice" v-on:click="updateExercice">
+        <ion-icon :icon="createOutline"></ion-icon>
+      </ion-button>
     </template>
     <p v-else>En cours de chargement</p>
   </ion-content>
 </template>
 
 <script>
-import { IonContent, IonGrid, IonRow, IonCol, IonImg } from '@ionic/vue';
+import { IonContent, IonGrid, IonRow, IonCol, IonImg, IonButton, IonIcon } from '@ionic/vue';
+import { createOutline } from 'ionicons/icons';
 import ExerciceService from '../../services/exercice';
 
 export default {
@@ -44,11 +49,14 @@ export default {
     IonRow,
     IonCol,
     IonImg,
+    IonButton,
+    IonIcon,
   },
   data() {
     return {
       exerciceService: ExerciceService,
       exercice: null,
+      createOutline,
     }
   },
   created() {
@@ -57,6 +65,7 @@ export default {
         // Check exercice exists
         if (exercice.exists()) {
           this.exercice = exercice.data();
+          this.exercice.id = this.$route.params.id;
         } else {
           // Redirect if no exercice
           this.$router.push({
@@ -65,6 +74,17 @@ export default {
         }
       }
     )
+  },
+  methods: {
+    updateExercice() {
+      // Redirect to update form
+      this.$router.push({
+        name: 'exerciceUpdate',
+        params: {
+          id: this.exercice.id
+        }
+      });
+    }
   }
 }
 </script>
@@ -89,5 +109,12 @@ export default {
 #exercice ion-img {
   margin: 5vh auto;
   width: 80%;
+}
+
+.btn-update-exercice {
+  position: absolute;
+  bottom: 5vh;
+  right: 5vh;
+  font-size: 1.2em;
 }
 </style>

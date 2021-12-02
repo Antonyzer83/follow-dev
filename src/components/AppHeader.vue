@@ -11,7 +11,6 @@
 
 <script>
 import { IonButtons, IonHeader, IonMenuButton, IonTitle, IonToolbar } from '@ionic/vue';
-import { useRoute } from 'vue-router';
 
 export default {
   name: 'AppHeader',
@@ -29,13 +28,13 @@ export default {
         exercices: 'Exercices',
         exercice: 'Exercice',
         exerciceCreate: 'Nouvel exercice',
+        exerciceUpdate: 'MàJ d\'un exercice',
       }
     }
   },
   computed: {
     getPageName() {
-      const route = useRoute();
-      return this.pages[route.name] || 'Not found';
+      return this.pages[this.$route.name] || 'Not found';
     }
   }
 }
