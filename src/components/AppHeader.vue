@@ -31,6 +31,7 @@ export default {
         exerciceUpdate: 'MàJ d\'un exercice',
         programs: 'Programmes',
         program: 'Programme',
+        programCreate: 'Nouveau programme',
       }
     }
   },

@@ -181,8 +181,4 @@ export default {
   margin: 2vh 0;
   text-align: center;
 }
-/*#exerciceForm ion-input, #exerciceForm ion-textarea {
-  border: 0.5px solid black;
-  border-radius: 5px;
-}*/
 </style>

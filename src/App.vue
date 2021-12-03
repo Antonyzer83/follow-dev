@@ -94,6 +94,12 @@ export default {
           url: '/programs',
           iosIcon: listOutline,
           mdIcon: listOutline
+        },
+        {
+          title: 'Créer un programme',
+          url: '/programs/create',
+          iosIcon: addOutline,
+          mdIcon: addOutline
         }
       ],
       authService: AuthService,
