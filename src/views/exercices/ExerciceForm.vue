@@ -29,7 +29,7 @@
         <ion-col>
           <ion-item>
             <ion-label>Nombre de répétitions :</ion-label>
-            <ion-input type="text" placeholder="(obligatoire)" v-model="exercice.repetition"></ion-input>
+            <ion-input type="number" placeholder="(obligatoire)" v-model="exercice.repetition"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -37,7 +37,7 @@
         <ion-col>
           <ion-item>
             <ion-label>Temps de repos :</ion-label>
-            <ion-input type="text" placeholder="(facultatif)" v-model="exercice.rest"></ion-input>
+            <ion-input type="number" placeholder="(facultatif)" v-model="exercice.rest"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -45,7 +45,7 @@
         <ion-col>
           <ion-item>
             <ion-label>Poids :</ion-label>
-            <ion-input type="text" placeholder="(facultatif)" v-model="exercice.weight"></ion-input>
+            <ion-input type="number" placeholder="(facultatif)" v-model="exercice.weight"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -53,7 +53,7 @@
         <ion-col>
           <ion-item>
             <ion-label>Nombre de séries :</ion-label>
-            <ion-input type="text" placeholder="(facultatif)" v-model="exercice.serie"></ion-input>
+            <ion-input type="number" placeholder="(facultatif)" v-model="exercice.serie"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>

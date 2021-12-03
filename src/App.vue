@@ -1,7 +1,7 @@
 <template>
   <ion-app>
-    <ion-split-pane content-id="main-content">
-      <ion-menu content-id="main-content" type="overlay">
+    <ion-split-pane content-id="main">
+      <ion-menu content-id="main" type="overlay">
         <ion-content>
           <ion-list id="inbox-list">
             <ion-list-header>FollowDev</ion-list-header>
@@ -34,9 +34,9 @@
           </ion-list>
         </ion-content>
       </ion-menu>
-      <ion-page>
+      <ion-page id="main">
         <app-header />
-        <ion-router-outlet id="main-content" :key="$route.path"></ion-router-outlet>
+        <ion-router-outlet :key="$route.path"></ion-router-outlet>
       </ion-page>
     </ion-split-pane>
   </ion-app>
@@ -120,7 +120,7 @@ export default {
 </script>
 
 <style scoped>
-#main-content {
+ion-router-outlet {
   padding-top: 8vh;
 }
 ion-menu ion-content {
