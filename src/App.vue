@@ -91,7 +91,7 @@ export default {
         },
         {
           title: 'Programmes',
-          url: 'programs',
+          url: '/programs',
           iosIcon: listOutline,
           mdIcon: listOutline
         }

@@ -66,6 +66,8 @@ export default {
         if (exercice.exists()) {
           this.exercice = exercice.data();
           this.exercice.id = this.$route.params.id;
+          // Set header title
+          this.$store.dispatch('saveHeaderTitle', this.exercice.name);
         } else {
           // Redirect if no exercice
           this.$router.push({

@@ -37,6 +37,8 @@ export default {
         if (program.exists()) {
           this.program = program.data();
           this.program.id = this.$route.params.id;
+          // Set header title
+          this.$store.dispatch('saveHeaderTitle', this.program.name);
 
           // Get each exercice data
           for (let i = 0; i < this.program.exercices.length; i++) {

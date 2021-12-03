@@ -36,7 +36,11 @@ export default {
   },
   computed: {
     getPageName() {
-      return this.pages[this.$route.name] || 'Not found';
+      if (['program', 'exercice'].includes(this.$route.name)) {
+        return this.$store.getters.getHeaderTitle;
+      } else {
+        return this.pages[this.$route.name] || 'Not found';
+      }
     }
   }
 }
