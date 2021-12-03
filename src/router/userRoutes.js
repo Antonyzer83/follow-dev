@@ -18,6 +18,11 @@ const userRoutes = [
     path: '/exercices/update/:id',
     name: 'exerciceUpdate',
     component: () => import('../views/exercices/ExerciceForm.vue')
+  },
+  {
+    path: '/programs',
+    name: 'programs',
+    component: () => import('../views/programs/ProgramList.vue')
   }
 ];
 

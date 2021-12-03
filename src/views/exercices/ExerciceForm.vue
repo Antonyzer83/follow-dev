@@ -59,6 +59,7 @@
       </ion-row>
       <ion-row>
         <ion-col>
+          <ion-button v-on:click="cancelExercice" color="danger">Annuler</ion-button>
           <ion-button v-if="isCreateMode" color="success" v-on:click="createExercice">Créer</ion-button>
           <ion-button v-else color="warning" v-on:click="updateExercice">Mise à jour</ion-button>
         </ion-col>
@@ -147,6 +148,20 @@ export default {
             });
           }
         );
+      }
+    },
+    cancelExercice() {
+      if (this.mode == 'create') {
+        this.$router.push({
+          name: 'exercices'
+        });
+      } else {
+        this.$router.push({
+          name: 'exercice',
+          params: {
+            id: this.exercice.id
+          }
+        });
       }
     }
   },

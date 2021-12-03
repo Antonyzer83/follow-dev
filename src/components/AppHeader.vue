@@ -29,6 +29,7 @@ export default {
         exercice: 'Exercice',
         exerciceCreate: 'Nouvel exercice',
         exerciceUpdate: 'MàJ d\'un exercice',
+        programs: 'Programmes',
       }
     }
   },
