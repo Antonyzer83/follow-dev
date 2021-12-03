@@ -6,13 +6,18 @@
 
         <exercice-list-card v-for="exercice in program.exercices" :key="exercice.id" :exercice="exercice" />
       </div>
-      </template>
+
+      <ion-button class="btn-update-program" v-on:click="updateProgram">
+        <ion-icon :icon="createOutline"></ion-icon>
+      </ion-button>
+    </template>
     <p v-else>En cours de chargement</p>
   </ion-content>
 </template>
 
 <script>
-import { IonContent } from '@ionic/vue';
+import { IonContent, IonButton, IonIcon } from '@ionic/vue';
+import { createOutline } from 'ionicons/icons';
 import ExerciceService from '../../services/exercice';
 import ProgramService from '../../services/program';
 import ExerciceListCard from '../../components/ExerciceListCard';
@@ -21,13 +26,16 @@ export default {
   name: 'Program',
   components: {
     IonContent,
+    IonButton,
+    IonIcon,
     ExerciceListCard,
   },
   data() {
     return {
       exerciceService: ExerciceService,
       programService: ProgramService,
-      program: null
+      program: null,
+      createOutline,
     }
   },
   created() {
@@ -59,6 +67,17 @@ export default {
         }
       }
     )
+  },
+  methods: {
+    updateProgram() {
+      // Redirect to update form
+      this.$router.push({
+        name: 'programUpdate',
+        params: {
+          id: this.program.id
+        }
+      });
+    }
   }
 }
 </script>
@@ -66,5 +85,11 @@ export default {
 <style>
 #program {
   margin: 3vh;
+}
+.btn-update-program {
+  position: absolute;
+  bottom: 5vh;
+  right: 5vh;
+  font-size: 1.2em;
 }
 </style>

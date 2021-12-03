@@ -33,6 +33,11 @@ const userRoutes = [
     path: '/programs/create',
     name: 'programCreate',
     component: () => import('../views/programs/ProgramForm.vue')
+  },
+  {
+    path: '/programs/update/:id',
+    name: 'programUpdate',
+    component: () => import('../views/programs/ProgramForm.vue')
   }
 ];
 

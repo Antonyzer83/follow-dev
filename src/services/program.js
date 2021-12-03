@@ -1,4 +1,4 @@
-import { collection, getFirestore, getDocs, getDoc, addDoc, doc } from 'firebase/firestore';
+import { collection, getFirestore, getDocs, getDoc, addDoc, setDoc, doc } from 'firebase/firestore';
 
 class ProgramService {
   async getPrograms() {
@@ -15,6 +15,11 @@ class ProgramService {
     const db = getFirestore();
 
     return await addDoc(collection(db, 'programs'), program);
+  }
+  async updateProgram(program) {
+    const db = getFirestore();
+
+    return await setDoc(doc(db, 'programs', program.id), program);
   }
 }
 

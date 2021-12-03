@@ -26,7 +26,7 @@
         <ion-reorder-group v-if="program.exercices.length" :disabled="false">
           <ion-item v-for="exercice in program.exercices" :key="exercice.id">
             <ion-label slot="start">{{ getExercice(exercice).name }}</ion-label>
-            <ion-reorder></ion-reorder>
+            <ion-reorder slot="end"></ion-reorder>
           </ion-item>
         </ion-reorder-group>
         <p v-else>Aucun exercice sélectionné</p>
@@ -34,7 +34,8 @@
       <ion-row>
         <ion-col>
           <ion-button color="danger">Annuler</ion-button>
-          <ion-button color="success" v-on:click="createProgram">Créer</ion-button>
+          <ion-button v-if="isCreateMode" color="success" v-on:click="createProgram">Créer</ion-button>
+          <ion-button v-else color="warning" v-on:click="updateProgram">Mise à jour</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -72,9 +73,23 @@ export default {
         performances: [],
       },
       exercices: [],
+      mode: 'create',
     }
   },
   created() {
+    // Get program to update if id in route
+    if (this.$route.params.id && this.$route.name === 'programUpdate') {
+      this.programService.getProgram(this.$route.params.id).then(
+        program => {
+          if (program.exists()) {
+            this.program = program.data();
+            this.program.id = this.$route.params.id;
+            this.mode = 'update';
+          }
+        }
+      );
+    }
+    // Get all exercices for select input
     this.exerciceService.getExercices().then(
       list => {
         list.forEach((doc) => {
@@ -110,6 +125,25 @@ export default {
           }
         )
       }
+    },
+    updateProgram() {
+      if (this.program.name !== '' && this.program.exercices.length > 0) {
+        this.programService.updateProgram(this.program).then(
+          () => {
+            this.$router.push({
+              name: 'program',
+              params: {
+                id: this.program.id
+              }
+            });
+          }
+        );
+      }
+    }
+  },
+  computed: {
+    isCreateMode() {
+      return this.mode === 'create';
     }
   }
 }

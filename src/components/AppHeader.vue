@@ -32,6 +32,7 @@ export default {
         programs: 'Programmes',
         program: 'Programme',
         programCreate: 'Nouveau programme',
+        programUpdate: 'MàJ d\'un programme',
       }
     }
   },
