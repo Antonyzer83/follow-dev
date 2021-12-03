@@ -1,5 +1,5 @@
 <template>
-  <ion-grid class="program-card">
+  <ion-grid class="program-card" v-on:click="showOneProgram">
     <ion-row>
       <ion-col class="program-name">{{ program.name }}</ion-col>
     </ion-row>
@@ -26,7 +26,17 @@ export default  {
   },
   props: [
     'program'
-  ]
+  ],
+  methods: {
+    showOneProgram() {
+      this.$router.push({
+        name: 'program',
+        params: {
+          id: this.program.id
+        }
+      });
+    }
+  }
 }
 </script>
 

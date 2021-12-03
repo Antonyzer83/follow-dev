@@ -30,6 +30,7 @@ export default {
         exerciceCreate: 'Nouvel exercice',
         exerciceUpdate: 'MàJ d\'un exercice',
         programs: 'Programmes',
+        program: 'Programme',
       }
     }
   },

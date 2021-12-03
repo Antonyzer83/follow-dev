@@ -23,6 +23,11 @@ const userRoutes = [
     path: '/programs',
     name: 'programs',
     component: () => import('../views/programs/ProgramList.vue')
+  },
+  {
+    path: '/programs/:id',
+    name: 'program',
+    component: () => import('../views/programs/Program.vue')
   }
 ];
 

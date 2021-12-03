@@ -1,5 +1,5 @@
 <template>
-  <ion-grid class="exercice-card" v-on:click="showOneExercice(exercice.id)">
+  <ion-grid class="exercice-card" v-on:click="showOneExercice">
     <ion-row>
       <ion-col size="6">
         <ion-row class="ion-align-items-center">
@@ -63,11 +63,11 @@ export default {
     };
   },
   methods: {
-    showOneExercice(exerciceId) {
+    showOneExercice() {
       this.$router.push({
         name: 'exercice',
         params: {
-          id: exerciceId
+          id: this.exercice.id
         }
       });
     }
