@@ -34,6 +34,7 @@ export default {
         programCreate: 'Nouveau programme',
         programUpdate: 'MàJ d\'un programme',
         performances: 'Performances',
+        performanceCreate: 'Nouvelle performance',
       }
     }
   },

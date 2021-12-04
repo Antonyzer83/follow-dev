@@ -5,6 +5,8 @@
         <p>Exercices :</p>
 
         <exercice-list-card v-for="exercice in program.exercices" :key="exercice.id" :exercice="exercice" />
+      
+        <ion-button expand="block" v-on:click="addPerformance">Ajouter une performance</ion-button>
       </div>
 
       <ion-button class="btn-update-program" v-on:click="updateProgram">
@@ -73,6 +75,15 @@ export default {
       // Redirect to update form
       this.$router.push({
         name: 'programUpdate',
+        params: {
+          id: this.program.id
+        }
+      });
+    },
+    addPerformance() {
+      // Redirect to performance form
+      this.$router.push({
+        name: 'performanceCreate',
         params: {
           id: this.program.id
         }
