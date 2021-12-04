@@ -33,6 +33,7 @@ export default {
         program: 'Programme',
         programCreate: 'Nouveau programme',
         programUpdate: 'MàJ d\'un programme',
+        programPerformances: 'Performances',
         performances: 'Performances',
         performance: 'Performance',
         performanceCreate: 'Nouvelle performance',

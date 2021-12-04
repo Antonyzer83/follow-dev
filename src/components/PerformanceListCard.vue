@@ -4,7 +4,7 @@
       <ion-col class="performance-name">Performance n°{{ performance.number }}</ion-col>
     </ion-row>
     <ion-row>
-      <ion-col>Liée au programme {{ performance.program.name }} ({{ performance.program.exercices.length }} exercice(s))</ion-col>
+      <ion-col>Liée au programme <span class="text-bold">{{ performance.program.name }}</span> ({{ performance.program.exercices.length }} exercice(s))</ion-col>
     </ion-row>
     <ion-row>
       <ion-col>Enregistrée le {{ formatedDate }}</ion-col>

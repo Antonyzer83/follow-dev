@@ -25,6 +25,8 @@ export default {
     }
   },
   created() {
+    // Get potential program id
+    const programId = this.$route.params.programId || null;
     let count = 1;
     this.performanceService.getPerformances().then(
       list => {
@@ -34,8 +36,16 @@ export default {
           // Append id to performance object
           performance.id = doc.id;
           performance.number = count;
-          count++;
-          this.performances.push(performance);
+          // Select performances if program id specified
+          if (programId) {
+            if (performance.program.id == programId) {
+              this.performances.push(performance);
+              count++;
+            }
+          } else {
+            this.performances.push(performance);
+            count++;
+          }
         });
       }
     )
