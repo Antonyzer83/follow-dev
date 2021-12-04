@@ -6,21 +6,21 @@
       <ion-grid class="exercice-infos">
         <ion-row>
           <ion-col size="6">
-            <p class="exercice-info-name">Nombre de répétitions</p>
+            <p class="text-bold">Nombre de répétitions</p>
             <p>{{ exercice.repetition }}</p>
           </ion-col>
           <ion-col size="6">
-            <p class="exercice-info-name">Temps de repos</p>
+            <p class="text-bold">Temps de repos</p>
             <p>{{ exercice.rest }}</p>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col size="6">
-            <p class="exercice-info-name">Poids</p>
+            <p class="text-bold">Poids</p>
             <p>{{ exercice.weight }} kg</p>
           </ion-col>
           <ion-col size="6">
-            <p class="exercice-info-name">Nombre de séries</p>
+            <p class="text-bold">Nombre de séries</p>
             <p>{{ exercice.serie }}</p>
           </ion-col>
         </ion-row>
@@ -103,9 +103,6 @@ export default {
 .exercice-infos ion-col {
   border: 1px solid black;
   min-height: 150%;
-}
-.exercice-info-name {
-  font-weight: bold;
 }
 
 #exercice ion-img {

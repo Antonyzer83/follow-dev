@@ -3,7 +3,7 @@
     <ion-row>
       <ion-col size="6">
         <ion-row class="ion-align-items-center">
-          <ion-col class="exercice-name">{{ exercice.name }}</ion-col>
+          <ion-col class="text-bold">{{ exercice.name }}</ion-col>
         </ion-row>
         <ion-row>
           <ion-col size="6">
@@ -82,9 +82,5 @@ export default {
   border-radius: 10px;
   box-shadow: 2px 2px grey;
   height: 15vh;
-}
-
-.exercice-name {
-  font-weight: bold;
 }
 </style>

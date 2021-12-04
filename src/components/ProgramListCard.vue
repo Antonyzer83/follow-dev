@@ -1,7 +1,7 @@
 <template>
   <ion-grid class="program-card" v-on:click="showOneProgram">
     <ion-row>
-      <ion-col class="program-name">{{ program.name }}</ion-col>
+      <ion-col class="text-bold">{{ program.name }}</ion-col>
     </ion-row>
     <ion-row>
       <ion-col size="6">
@@ -47,9 +47,5 @@ export default  {
   border-radius: 10px;
   box-shadow: 2px 2px grey;
   text-align: center;
-}
-
-.program-name {
-  font-weight: bold;
 }
 </style>
