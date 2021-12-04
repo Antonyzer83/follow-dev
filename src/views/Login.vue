@@ -16,6 +16,7 @@
           <ion-button color="primary" v-on:click="loginWithEmailPassword()">Se connecter</ion-button>  
         </ion-col>
       </ion-row>
+      <template v-if="! isMobile">
       <ion-row>
         <ion-col>
           <p>OU</p>
@@ -26,6 +27,7 @@
           <ion-button color="danger" v-on:click="loginWithGoogle()">Se connecter avec Google <ion-icon slot="end" :icon="logoGoogle"></ion-icon></ion-button>
         </ion-col>
       </ion-row>
+      </template>
     </ion-grid>
   </ion-content>
 </template>
@@ -62,6 +64,11 @@ export default {
     },
     loginWithGoogle() {
       this.authService.loginWithGoogle();
+    }
+  },
+  computed: {
+    isMobile() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
   }
 }
