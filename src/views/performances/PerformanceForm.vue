@@ -151,12 +151,19 @@ export default {
     createPerformance() {
       this.performance.date = Timestamp.fromDate(new Date());
       this.performance.program.name = this.program.name;
+      this.performance.program.id = this.program.id;
 
       this.performanceService.createPerformance(this.performance).then(
         result => {
           // Redirect to new performance page if success
           if (result.id) {
-            // TODO
+            this.$router.push({
+              name: 'performance',
+              params: {
+                performanceId: result.id,
+                programId: this.program.id
+              }
+            });
           } else {
             // Redirect to list of performances
             this.$router.push({

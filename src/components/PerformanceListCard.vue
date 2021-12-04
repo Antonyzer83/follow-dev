@@ -1,5 +1,5 @@
 <template>
-  <ion-grid class="performance-card">
+  <ion-grid class="performance-card" v-on:click="showOnePerformance">
     <ion-row>
       <ion-col class="performance-name">Performance n°{{ performance.number }}</ion-col>
     </ion-row>
@@ -26,6 +26,17 @@ export default {
   props: [
     'performance'
   ],
+  methods: {
+    showOnePerformance() {
+      this.$router.push({
+        name: 'performance',
+        params: {
+          performanceId: this.performance.id,
+          programId: this.performance.program.id
+        }
+      });
+    }
+  },
   computed: {
     formatedDate() {
       return moment(this.performance.date.toDate()).format('DD/MM/YYYY à HH:mm:SS');

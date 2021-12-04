@@ -45,6 +45,11 @@ const userRoutes = [
     component: () => import('../views/performances/PerformanceList.vue')
   },
   {
+    path: '/programs/:programId/performances/:performanceId',
+    name: 'performance',
+    component: () => import('../views/performances/Performance')
+  },
+  {
     path: '/programs/:id/performances/create',
     name: 'performanceCreate',
     component: () => import('../views/performances/PerformanceForm.vue')
