@@ -33,7 +33,7 @@
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-button color="danger">Annuler</ion-button>
+          <ion-button color="danger" v-on:click="cancelProgramForm">Annuler</ion-button>
           <ion-button v-if="isCreateMode" color="success" v-on:click="createProgram">Créer</ion-button>
           <ion-button v-else color="warning" v-on:click="updateProgram">Mise à jour</ion-button>
         </ion-col>
@@ -103,6 +103,20 @@ export default {
   methods: {
     getExercice(exerciceId) {
       return this.exercices.find(ex => ex.id == exerciceId);
+    },
+    cancelProgramForm() {
+      if (this.mode === 'create') {
+        this.$router.push({
+          name: 'programs'
+        });
+      } else {
+        this.$router.push({
+          name: 'program',
+          params: {
+            id: this.program.id
+          }
+        });
+      }
     },
     createProgram() {
       if (this.program.name !== '' && this.program.exercices.length > 0) {

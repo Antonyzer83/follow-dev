@@ -50,7 +50,7 @@
         </template>
         <ion-row>
           <ion-col>
-            <ion-button color="danger">Annuler</ion-button>
+            <ion-button color="danger" v-on:click="cancelPerformanceForm">Annuler</ion-button>
             <ion-button color="success" v-on:click="createPerformance">Enregistrer</ion-button>
           </ion-col>
         </ion-row>
@@ -140,6 +140,14 @@ export default {
     }
   },
   methods: {
+    cancelPerformanceForm() {
+      this.$router.push({
+        name: 'program',
+        params: {
+          id: this.program.id
+        }
+      });
+    },
     createPerformance() {
       this.performance.date = Timestamp.fromDate(new Date());
       this.performance.program.name = this.program.name;
