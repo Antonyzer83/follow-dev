@@ -1,5 +1,5 @@
 <template>
-  <ion-grid class="exercice-card" v-on:click="showOneExercice">
+  <ion-grid class="item-card" v-on:click="showOneExercice">
     <ion-row>
       <ion-col size="6">
         <ion-row class="ion-align-items-center">
@@ -74,13 +74,3 @@ export default {
   }
 };
 </script>
-
-<style>
-.exercice-card {
-  margin: 10px;
-  border: 1px solid black;
-  border-radius: 10px;
-  box-shadow: 2px 2px grey;
-  height: 15vh;
-}
-</style>

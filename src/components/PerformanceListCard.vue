@@ -1,5 +1,5 @@
 <template>
-  <ion-grid class="performance-card" v-on:click="showOnePerformance">
+  <ion-grid class="item-card" v-on:click="showOnePerformance">
     <ion-row>
       <ion-col class="performance-name">Performance n°{{ performance.number }}</ion-col>
     </ion-row>
@@ -44,18 +44,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.performance-card {
-  margin: 10px;
-  border: 1px solid black;
-  border-radius: 10px;
-  box-shadow: 2px 2px grey;
-  height: 15vh;
-}
-
-.performance-name {
-  font-weight: bold;
-  text-align: center;
-}
-</style>
