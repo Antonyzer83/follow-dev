@@ -10,6 +10,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@awesome-cordova-plugins/core": "^5.37.1",
+    "@awesome-cordova-plugins/pdf-generator": "^5.37.1",
     "@capacitor/android": "3.3.2",
     "@capacitor/app": "1.0.6",
     "@capacitor/core": "3.3.2",
@@ -19,6 +21,7 @@
     "@ionic-native/core": "^5.36.0",
     "@ionic/vue": "^5.4.0",
     "@ionic/vue-router": "^5.4.0",
+    "cordova-pdf-generator": "^2.1.1",
     "core-js": "^3.6.5",
     "firebase": "^9.5.0",
     "moment": "^2.29.1",
