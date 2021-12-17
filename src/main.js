@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import { App as AppCapacitor, URLOpenListenerEvent } from '@capacitor/app';
+import { App as AppCapacitor } from '@capacitor/app';
 import App from './App.vue'
 import router from './router';
 import store from './store';
