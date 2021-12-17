@@ -5,6 +5,11 @@ const publicRoutes = [
     component: () => import('../views/Login.vue')
   },
   {
+    path: '/faq',
+    name: 'faq',
+    component: () => import('../views/Faq.vue')
+  },
+  {
     path: '/:catchAll(.*)',
     name: 'not-found',
     component: () => import('../views/404NotFound')

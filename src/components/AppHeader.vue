@@ -5,12 +5,19 @@
         <ion-menu-button color="primary"></ion-menu-button>
       </ion-buttons>
       <ion-title>{{ getPageName }}</ion-title>
+
+      <ion-buttons slot="end">
+        <ion-button :router-link="{ name: 'faq' }">
+          <ion-icon :icon="helpOutline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
 </template>
 
 <script>
-import { IonButtons, IonHeader, IonMenuButton, IonTitle, IonToolbar } from '@ionic/vue';
+import { IonButtons, IonHeader, IonMenuButton, IonTitle, IonToolbar, IonButton, IonIcon } from '@ionic/vue';
+import { helpOutline } from 'ionicons/icons';
 
 export default {
   name: 'AppHeader',
@@ -20,6 +27,8 @@ export default {
     IonMenuButton,
     IonTitle,
     IonToolbar,
+    IonButton,
+    IonIcon,
   },
   data() {
     return {
@@ -37,7 +46,9 @@ export default {
         performances: 'Performances',
         performance: 'Performance',
         performanceCreate: 'Nouvelle performance',
-      }
+        faq: 'Foire aux questions'
+      },
+      helpOutline
     }
   },
   computed: {
