@@ -1,4 +1,5 @@
-import { createApp } from 'vue'
+import { createApp } from 'vue';
+import { App as AppCapacitor, URLOpenListenerEvent } from '@capacitor/app';
 import App from './App.vue'
 import router from './router';
 import store from './store';
@@ -53,6 +54,18 @@ onAuthStateChanged(auth, (user) => {
   } else {
     router.push({
       name: 'login'
+    });
+  }
+});
+
+// Configuration for deep-link
+AppCapacitor.addListener('appUrlOpen', function (event) {
+  const slug = event.url.split('.app').pop();
+
+  // Redirect only if slug exists
+  if (slug) {
+    router.push({
+      path: slug,
     });
   }
 });
