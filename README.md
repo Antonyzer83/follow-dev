@@ -4,15 +4,35 @@
 
 FollowDev est une application codée en Ionic avec le framework Vue.js 3. Cet outil a pour but de créer des performances suite à des exercices et des programmes entrés par les utilisateurs connectés de l'application. Les sportifs ont également l'occasion d'imprimer leurs performances au format PDF ou même des les partager par mail, SMS ou par les réseaux sociaux.
 
-## Comment construire et lancer le projet sur Android 
+Cette documentation comporte le guide d'installation et de déploiement de l'application en local, mais également les wireframes réalisées en amont du projet.
 
-- Générer le code Android 
+## Lancer le projet Ionic en local sur Android
+
+- Cloner le dépôt Github du projet en local
+
+```bash
+git clone https://github.com/Antonyzer83/follow-dev.git && cd follow-dev
+```
+
+- Installer les dépendances NPM
+
+```bash
+npm install
+```
+
+- Installer Ionic CLI en global, si vous ne l'avez pas déjà sur votre poste
+
+```bash
+npm install -g @ionic/cli
+```
+
+- Générer le code Ionic pour la plateforme Android 
 
 ```bash
 ionic capacitor build android
 ```
 
-- Générer les splash screens et les icônes
+- Générer les splash screens et les icônes (automatiquement copiés dans le code précédent)
 
 ```bash
 npm run resources
@@ -34,6 +54,7 @@ ionic capacitor run android --target <your device>
 
 - [Dépôt Github](https://github.com/Antonyzer83/follow-dev/)
 - [Tableau de développement Github avec les tickets](https://github.com/Antonyzer83/follow-dev/projects/1)
+- [Site statique de l'application mobile](https://followdevynov.web.app/)
 - Ionic Native :
   - [Deep Link](https://capacitorjs.com/docs/guides/deep-links)
   - [Social Sharing](https://ionicframework.com/docs/native/social-sharing)
