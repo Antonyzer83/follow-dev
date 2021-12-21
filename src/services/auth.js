@@ -11,20 +11,25 @@ class AuthService {
 
   loginWithEmailPassword(email, password) {
     const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
-      .catch((error) => {
-        if (error.message.includes('auth/user-not-found')) {
-          createUserWithEmailAndPassword(auth, email, password)
-            .then((response) => {
-              const db = getFirestore();
-              const { email: emailResponse, uid } = response.user;
-              addDoc(collection(db, 'users'), {
-                email: emailResponse,
-                uid
+    return new Promise((resolve, reject) => {
+      signInWithEmailAndPassword(auth, email, password)
+        .catch((error) => {
+          if (error.message.includes('auth/user-not-found')) {
+            createUserWithEmailAndPassword(auth, email, password)
+              .then((response) => {
+                const db = getFirestore();
+                const { email: emailResponse, uid } = response.user;
+                addDoc(collection(db, 'users'), {
+                  email: emailResponse,
+                  uid
+                });
               });
-            });
-        }
-      });
+            resolve();
+          } else {
+            reject(error.message);
+          }
+        });
+    });
   }
 
   logout() {

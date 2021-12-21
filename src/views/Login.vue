@@ -11,6 +11,11 @@
           <ion-input type="password" placeholder="Mot de passe" v-model="password"></ion-input>
         </ion-col>
       </ion-row>
+      <ion-row v-if="error">
+        <ion-col>
+          <p class="error">{{ error }}</p>
+        </ion-col>
+      </ion-row>
       <ion-row>
         <ion-col>
           <ion-button color="primary" v-on:click="loginWithEmailPassword()">Se connecter</ion-button>  
@@ -53,13 +58,24 @@ export default {
       email: '',
       password: '',
       authService: AuthService,
+      error: null,
       logoGoogle
     }
   },
   methods: {
     loginWithEmailPassword() {
       if (this.email !== '' && this.password !== '') {
-        this.authService.loginWithEmailPassword(this.email, this.password);
+        this.authService.loginWithEmailPassword(this.email, this.password)
+          .catch((error) => {
+            console.log('error', error);
+            if (error.includes('auth/wrong-password')) {
+              this.error = 'Mot de passe incorrect';
+            } else {
+              this.error = 'Une erreur inconnue est survenue lors de la tentative de connexion.';
+            }
+          });
+      } else {
+        this.error = 'Entrez votre email et votre mot de passe.';
       }
     },
     loginWithGoogle() {
